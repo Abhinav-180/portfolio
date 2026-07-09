@@ -1,0 +1,242 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(139, 92, 246, 0.18);
+  color: #1a1a1a;
+}
+
+/* ─── Profile Image Animations ───────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}
+
+.profile-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ─── Pulse dot (green "open to opportunities") ─── */
+
+@keyframes pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5); }
+  70%  { box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+/* ─── Pulse ring (circular profile glow) ───── */
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.25); }
+  70%  { box-shadow: 0 0 0 14px rgba(139, 92, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+}
+
+.profile-ring {
+  animation: pulse-ring 3s infinite;
+}
+
+/* ─── Interactive hover effects ──────────────── */
+
+.project-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px -12px rgba(0, 0, 0, 0.12);
+  border-color: #D5D0C4;
+}
+
+.link-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.link-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px -8px rgba(0, 0, 0, 0.1);
+  border-color: #D5D0C4;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+.nav-link:hover { color: #141414 !important; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1.5px;
+  background: #141414;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+.send-btn {
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.send-btn:hover {
+  background: #2a2a2a !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.3);
+}
+
+.cta-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -6px rgba(0, 0, 0, 0.2);
+}
+
+.social-btn {
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.12);
+}
+
+/* ─── Form input styles ─────────────────────── */
+
+.form-input {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.form-input:focus {
+  border-color: #8B5CF6 !important;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+.form-input::placeholder {
+  color: #B5B0A4;
+}
+
+/* ─── Hero image hover ──────────────────────── */
+
+.hero-image-wrap {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+.hero-image-wrap:hover {
+  transform: scale(1.02);
+  box-shadow: 0 28px 70px -15px rgba(0, 0, 0, 0.22) !important;
+}
+
+/* ─── Section label slide-in ────────────────── */
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── Footer nav links on dark bg ───────────── */
+
+.footer-nav-link {
+  color: #F4F2EC !important;
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+.footer-nav-link:hover {
+  opacity: 0.7;
+}
+
+/* ─── Responsive ─────────────────────────────── */
+
+@media (max-width: 960px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-grid {
+    flex-direction: column-reverse !important;
+    gap: 28px !important;
+    text-align: center;
+  }
+  .hero-image-wrap {
+    width: 180px !important;
+    height: 180px !important;
+    align-self: center;
+  }
+  .hero-heading {
+    font-size: 36px !important;
+  }
+  .nav-links {
+    display: none !important;
+  }
+  .nav-contact {
+    display: none !important;
+  }
+  .form-row {
+    flex-direction: column !important;
+  }
+  .footer-heading {
+    font-size: 32px !important;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-card {
+    padding: 24px 20px !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .footer-giant-name {
+    font-size: clamp(40px, 14vw, 80px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-heading {
+    font-size: 30px !important;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-image-wrap {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .contact-buttons {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .contact-buttons a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .footer-giant-name {
+    font-size: clamp(32px, 12vw, 60px) !important;
+  }
+}
