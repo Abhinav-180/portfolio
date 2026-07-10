@@ -149,7 +149,7 @@ const CATEGORIES = [
         eyebrow: "Computer Vision",
         sub: "YOLOv8 · Object Detection · Streamlit",
         title: "Safety Equipment Detection",
-        desc: "Automated detection of safety equipment (fire extinguishers, oxygen tanks, first aid kits) using YOLOv8 trained with T4 GPU, deployed via Streamlit. Built for GenIgnite Hackathon 2025.",
+        desc: "Automated detection of safety equipment (fire extinguishers, oxygen tanks, first aid kits) using YOLOv8 trained with T4 GPU, deployed via Streamlit.",
         stack: ["Python", "YOLOv8", "Streamlit", "Google Colab"],
         links: [
           { type: "github", href: "#" },
@@ -513,6 +513,9 @@ function Navbar() {
       <a
         href="#"
         style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
           fontFamily: "Space Grotesk, sans-serif",
           fontWeight: 700,
           fontSize: 15,
@@ -520,6 +523,9 @@ function Navbar() {
           color: "#141414",
         }}
       >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2L4.09 12.11C3.69 12.59 3.89 13.34 4.47 13.55L10.47 15.89C10.85 16.03 11.08 16.41 11.03 16.82L10.12 22.87C10.01 23.56 10.88 23.97 11.33 23.43L20.91 12.39C21.31 11.91 21.11 11.16 20.53 10.95L14.53 8.61C14.15 8.47 13.92 8.09 13.97 7.68L14.88 1.63C14.99 0.94 14.12 0.53 13.67 1.07L13 2Z" fill="#141414"/>
+        </svg>
         Abhinav Singh Vatsa
       </a>
 
